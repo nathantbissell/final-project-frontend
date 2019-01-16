@@ -7,6 +7,7 @@ const authenticatedOptions = (
   <React.Fragment>
     <Link to="/change-password">Change Password</Link>
     <Link to="/sign-out">Sign Out</Link>
+    <Link to='/players'>Players</Link>
   </React.Fragment>
 )
 
@@ -24,8 +25,9 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
+  // destructured user
   <header className="main-header">
-    <h1>Uber, But For Taxis</h1>
+    <h1>DraftKings, but for idiots</h1>
     <nav>
       { user && <span>Welcome, {user.email}</span>}
       { user ? authenticatedOptions : unauthenticatedOptions }
