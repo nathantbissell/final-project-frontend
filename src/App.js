@@ -89,10 +89,10 @@ class App extends Component {
             render={() => <ChangePassword flash={this.flash} user={user} />}
           />
 
-          <Route
+          <AuthenticatedRoute
             user={user}
             path='/players' 
-            render={() => <PlayerIndex  />}
+            render={() => <PlayerIndex user={user} />}
           />
 
         </main>

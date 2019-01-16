@@ -12,12 +12,16 @@ class PlayerIndex extends Component {
   componentDidMount() {
     // get all players
     axios
-      .get('http://localhost:4741/players')
+      .get('http://localhost:4741/players', {
+        headers: {
+          'Authorization': `Token token=${this.props.user.token}`
+        }
+      })
       .then(res => {
         this.setState({ players: res.data.players })
       })
-      .then(() => this.props.flash('BIG MOOD'))
-      .catch(() => console.error('yikes'))
+      .then(() => this.props.flash('BIG MOOD', 'flash success'))
+      .catch((error) => console.error(err))
   }
 
   render() {
