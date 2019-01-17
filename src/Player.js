@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+const newPlayers = []
 
 class Player extends Component {
   addPlayer = event => {
@@ -9,7 +10,21 @@ class Player extends Component {
     console.log('name', this.props.data.name)
     console.log('position', this.props.data.pos)
     console.log('dollar', this.props.data.dollar)
-    axios
+    
+    newPlayers.push(this.props.data)
+    console.log(newPlayers)
+    return newPlayers
+    // axios
+    //   .patch('http://localhost:4741/teams/:id', {
+    //     headers: {
+    //       Authorization: `Token token=${this.props.user.token}`
+    //     }
+    //   })
+    //   .then(res => {
+    //     this.setState({ players: res.data.players })
+    //   })
+    //   .then(() => this.props.flash('BIG MOOD', 'flash success'))
+    //   .catch(err => console.error(err))
   }
   render() {
     return (
@@ -24,10 +39,6 @@ class Player extends Component {
     )
   }
 }
-
-// handleClick = () => {
-//   this.setState(state => ({ isSelected: !state.isSelected }))
-// }
 
 // pass in params
 // playerType, remainingDollarAmnt

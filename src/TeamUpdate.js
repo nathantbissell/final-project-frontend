@@ -6,15 +6,7 @@ class TeamUpdate extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      qb: '',
-      rb1: '',
-      rb2: '',
-      wr1: '',
-      wr2: '',
-      wr3: '',
-      te: '',
-      flex: '',
-      dst: ''
+      
     }
     this.updateTeam = this.updateTeam.bind(this)
   }
@@ -41,23 +33,9 @@ class TeamUpdate extends Component {
       )
       .catch(this.setState({ message: 'You have invalid form data' }))
   }
-
-  //   onQbChange = event => this.setState({ qb: event.target.value })
-  //   onRb1Change = event => this.setState({ rb1: event.target.value })
-  //   onRb2Change = event => this.setState({ rb2: event.target.value })
-  //   onWr1Change = event => this.setState({ wr1: event.target.value })
-  //   onWr2Change = event => this.setState({ wr2: event.target.value })
-  //   onWr3hange = event => this.setState({ wr3: event.target.value })
-  //   onTeChange = event => this.setState({ te: event.target.value })
-  //   onFlexChange = event => this.setState({ flex: event.target.value })
-  //   onDstChange = event => this.setState({ dst: event.target.value })
-
-  // }
   render() {
-    const { name } = this.props
     return (
-      <div onClick={this.handleClick}>
-        <h4> name </h4>
+      <div>
       </div>
     )
   }
