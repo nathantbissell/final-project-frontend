@@ -18,7 +18,6 @@ import TeamCreate from './TeamCreate.js'
 import TeamDelete from './TeamDelete.js'
 import TeamUpdate from './TeamUpdate.js'
 
-
 class App extends Component {
   constructor() {
     super()
@@ -30,13 +29,6 @@ class App extends Component {
       isSelected: false
     }
   }
-
-  Playerlist = () => (
-    <div>
-      <Player name='test' pos='qb' dollar= {10}/>
-    </div>
-  )
-
 
   setUser = user => this.setState({ user })
 
@@ -89,56 +81,23 @@ class App extends Component {
             render={() => <ChangePassword flash={this.flash} user={user} />}
           />
 
-          <Route
+          <AuthenticatedRoute
             user={user}
-            path='/players' 
-            render={() => <PlayerIndex  />}
+            path='/players'
+            render={() => <PlayerIndex user={user} />}
           />
 
+          <AuthenticatedRoute
+            user={user}
+            path='/update-team'
+            render={() => <TeamUpdate user={user} />}
+          />
+          <AuthenticatedRoute
+            user={user}
+            path='/create-team'
+            render={() => <TeamCreate flas={this.flash} user={user} />}
+          />
         </main>
-
-        <div>
-          {/* this is inside JSX comment */}
-          <h1>Welcome to RotoReact</h1>
-          {/* 
-            <li>
-              <Link to='/create'>Create Team</Link>
-            </li>
-            <li>
-              <Link to='/player'>Single Player</Link>
-            </li>
-            <li>
-              <Link to='/players'>All Players</Link>
-            </li>
-            <li>
-              <Link to='/update-team'>Update Team</Link>
-            </li>
-            <li>
-              <Link to='/delete-team'>Delete Team</Link>
-            </li>
-          </ul> */}
-          {/*  here are our routes
-                ie what to render when we visit a link */}
-          {/* <Route exact path='/' component={Home} /> */}
-          {/* <Route exact path='/players' component={PlayerIndex} />
-          <Route exact path='/player' component={PlayerShow} />
-          <Route exact path='/create' component={TeamCreate} />
-          <Route exact path='/update-team' component={TeamUpdate} />
-          <Route exact path='/delete-team' component={TeamDelete} /> */}
-          <ul>
-            {/* {this.state.players.map((player, index) => {
-              return (
-                <Player 
-                  key={player.index}
-                  name={player.name}
-                  pos={player.pos}
-                  value={player.dollar}
-                  news={player.news}
-                />
-              )
-            })} */}
-          </ul>
-        </div>
       </React.Fragment>
     )
   }
