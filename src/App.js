@@ -30,12 +30,6 @@ class App extends Component {
     }
   }
 
-  Playerlist = () => (
-    <div>
-      <Player name='test' pos='qb' dollar={10} />
-    </div>
-  )
-
   setUser = user => this.setState({ user })
 
   clearUser = () => this.setState({ user: null })
@@ -98,30 +92,12 @@ class App extends Component {
             path='/update-team'
             render={() => <TeamUpdate user={user} />}
           />
+          <AuthenticatedRoute
+            user={user}
+            path='/create-team'
+            render={() => <TeamCreate flas={this.flash} user={user} />}
+          />
         </main>
-
-        {/* <li>
-              <Link to='/create'>Create Team</Link>
-            </li>
-            <li>
-              <Link to='/player'>Single Player</Link>
-            </li>
-            <li>
-              <Link to='/players'>All Players</Link>
-            </li>
-            <li>
-              <Link to='/update-team'>Update Team</Link>
-            </li>
-            <li>
-              <Link to='/delete-team'>Delete Team</Link>
-            </li>
-          </ul> */}
-        {/* <Route exact path='/' component={Home} /> */}
-        {/* <Route exact path='/players' component={PlayerIndex} />
-          <Route exact path='/player' component={PlayerShow} />
-          <Route exact path='/create' component={TeamCreate} />
-          <Route exact path='/update-team' component={TeamUpdate} />
-          <Route exact path='/delete-team' component={TeamDelete} /> */}
       </React.Fragment>
     )
   }

@@ -15,15 +15,7 @@ class TeamUpdate extends Component {
     axios
       .patch('http://localhost:4741/team/:id', {
         team: {
-          qb: this.state.qb,
-          rb1: this.state.rb1,
-          rb2: this.state.rb2,
-          wr1: this.state.wr1,
-          wr2: this.state.wr2,
-          wr3: this.state.wr3,
-          te: this.state.te,
-          flex: this.state.flex,
-          dst: this.state.dst
+          
         }
       })
       .then(res =>
