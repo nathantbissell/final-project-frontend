@@ -95,7 +95,7 @@ class App extends Component {
           <AuthenticatedRoute
             user={user}
             path='/create-team'
-            render={() => <TeamCreate flas={this.flash} user={user} />}
+            render={() => <TeamCreate user={user} />}
           />
         </main>
       </React.Fragment>
