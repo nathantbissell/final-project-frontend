@@ -33,11 +33,9 @@ class TeamCreate extends Component {
       }
     }
 
-    const { user } = this.props
-    console.log('user', this.props.user)
     axios.post(url, data, options)
       .then(res =>
-        this.setState({ message: `made new team with ID: ${res.data.team.id}` })
+        this.setState({ message: `made new team with ID: ${res.data.team._id}` })
       )
       .catch(console.error)
   }
@@ -52,7 +50,7 @@ class TeamCreate extends Component {
             placeholder='Team Name'
             value={this.state.teamName}
             onChange={this.onNameChange}/>
-          <input type='submit' value='Create Team!' />
+          <input type='submit' value='Create Team' />
         </form>
         {this.state.message && <span> {this.state.message}</span>}
       </div>

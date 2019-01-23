@@ -10,6 +10,7 @@ const authenticatedOptions = (
     <Link to='/players'>Players</Link>
     <Link to='/update-team'>Edit</Link>
     <Link to='/create-team'>Create</Link>
+    <Link to='/delete-team'>Delete</Link>
   </React.Fragment>
 )
 

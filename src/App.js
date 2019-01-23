@@ -97,6 +97,11 @@ class App extends Component {
             path='/create-team'
             render={() => <TeamCreate user={user} />}
           />
+          <AuthenticatedRoute
+            user={user}
+            path='/delete-team'
+            render={() => <TeamDelete user={user} />}
+          />
         </main>
       </React.Fragment>
     )
