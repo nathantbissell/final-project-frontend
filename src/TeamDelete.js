@@ -29,7 +29,7 @@ class TeamDelete extends Component {
 
     axios.delete(url, options)
       .then(res =>
-        this.setState({ message: `You deleted a team, ID: ${res.data._id}` })
+        this.setState({ message: `You deleted a team, ID: ${this.state.id}` })
       )
       .catch(console.log (`this.state._id ${this.state._id}`))
   }
