@@ -1,4 +1,4 @@
-const apiUrl = 'https://nathantbissell.github.io/final-project-frontend'
+const apiUrl = 'https://guarded-falls-97072.herokuapp.com'
 
 export const handleErrors = res => {
   if (res.ok) {
