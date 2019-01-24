@@ -1,4 +1,4 @@
-const apiUrl = 'http://localhost:4741'
+const apiUrl = 'https://nathantbissell.github.io/final-project-frontend'
 
 export const handleErrors = res => {
   if (res.ok) {
