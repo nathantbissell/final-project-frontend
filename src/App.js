@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './App.scss'
+import './styles/App.scss'
 import { Route, Link } from 'react-router-dom'
 
 import AuthenticatedRoute from './auth/components/AuthenticatedRoute'
@@ -9,11 +9,7 @@ import SignIn from './auth/components/SignIn'
 import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
 
-import Player from './Player.js'
-import PlayerUpdate from './PlayerUpdate.js'
-import PlayerShow from './PlayerShow.js'
 import PlayerIndex from './PlayerIndex.js'
-import Team from './Team.js'
 import TeamCreate from './TeamCreate.js'
 import TeamDelete from './TeamDelete.js'
 import TeamUpdate from './TeamUpdate.js'
