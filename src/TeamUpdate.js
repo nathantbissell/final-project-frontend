@@ -22,24 +22,52 @@ class TeamUpdate extends Component {
     }
   }
 
-  // updateTeam = event => {
-  //   event.preventDefault()
-  //   const url = apiUrl + `/teams/${id}`
-  //   axios
-  //     .patch('http://localhost:4741/team/:id', {
-  //       team: {
+  updateTeam = event => {
+    event.preventDefault()
+    const {
+      id,
+      qbName,
+      qbDollar,
+      rbName,
+      rbDollar,
+      wrName,
+      wrDollar,
+      teName,
+      teDollar,
+      dstName,
+      dstDollar
+    } = this.state
+    const url = apiUrl + `/teams/${id}`
+    const options = {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Token token=${this.props.user.token}`
+      }
+    }
+    axios
+      .patch(url, options, {
+        team: {
+          qbName,
+          qbDollar,
+          rbName,
+          rbDollar,
+          wrName,
+          wrDollar,
+          teName,
+          teDollar,
+          dstName,
+          dstDollar
+        }
+      })
+      .then(res =>
+        this.setState({
+          message: `made a new team with ID: ${res.data.team.id}`
+        })
+      )
+      .catch(this.setState({ message: 'You have invalid form data' }))
+  }
 
-  //       }
-  //     })
-  //     .then(res =>
-  //       this.setState({
-  //         message: `made a new team with ID: ${res.data.team.id}`
-  //       })
-  //     )
-  //     .catch(this.setState({ message: 'You have invalid form data' }))
-  // }
-
-  onIdChange = event => this.setState({ _id: event.target.value })
+  onIdChange = event => this.setState({ id: event.target.value })
 
   onQBNameChange = event => this.setState({ qbName: event.target.value })
   onQBDollarChange = event => this.setState({ qbDollar: event.target.value })
@@ -61,6 +89,11 @@ class TeamUpdate extends Component {
       <div className='playerAddMain'>
         <form onSubmit={this.updateTeam}>
           <input
+            placeholder='Team ID'
+            value={this.state.id}
+            onChange={this.onIdChange}
+          />
+          <input
             placeholder='QB Name'
             value={this.state.qbName}
             onChange={this.onQBNameChange}
@@ -70,7 +103,6 @@ class TeamUpdate extends Component {
             value={this.state.qbDollar}
             onChange={this.onQBDollarChange}
           />
-          
           <input
             placeholder='RB Name'
             value={this.state.rbName}
@@ -81,7 +113,6 @@ class TeamUpdate extends Component {
             value={this.state.rbDollar}
             onChange={this.onRBDollarChange}
           />
-
           <input
             placeholder='WR Name'
             value={this.state.wrName}
@@ -92,7 +123,6 @@ class TeamUpdate extends Component {
             value={this.state.wrDollar}
             onChange={this.onWRDollarChange}
           />
-
           <input
             placeholder='TE Name'
             value={this.state.teName}
@@ -103,7 +133,6 @@ class TeamUpdate extends Component {
             value={this.state.teDollar}
             onChange={this.onTEDollarChange}
           />
-
           <input
             placeholder='DST Name'
             value={this.state.dstName}
