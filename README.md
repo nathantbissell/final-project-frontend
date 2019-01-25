@@ -1,10 +1,33 @@
 [![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
 
-# react-auth-template
+My application used a react-auth-template created by General Assembly, and the [Express API Template](https://git.generalassemb.ly/ga-wdi-boston/express-api-template). They both required both npm install and the download and unzip of these templates. After initializing a git repository, I deployed my express backend to Heroku and the frontend was deployed to Github pages.
 
-A front-end framework template for starting projects with a recent version of
-either the [Rails API Template](https://git.generalassemb.ly/ga-wdi-boston/rails-api-template)
-or the [Express API Template](https://git.generalassemb.ly/ga-wdi-boston/express-api-template).
+# Frontend Routes (CRUD actions)
+View your team (requires an existing team ID): '/show-team'
+Update your team (requires existing team ID): '/update-team'
+Create a team (requires a team name): '/create-team'
+Delete a team (requires a existing team ID): '/delete-team'
+
+All these routes included the authenticated route template that was given through General Assembly. These routes allowed us to pass user properties, and then allow us to pass a token in order to verify the user. 
+
+
+# Authentication Routes:
+Sign up: '/sign-up'
+Sign in: '/sign-in'
+Change password: '/change-password'
+Sign Out of Application: '/sign-out'
+
+# Additional Features
+
+In addition to my first time using React, I installed a .csv file that automatically loaded 100 players into the database. However in the final version of this project with time constraints, this addition was ommitted in the final build. Instead of pushing a player array to a team, I used form fields to send data back and associate user generated players to a team.
+
+# Planning
+
+I was determined to use Express as my backend and React as my frontend library from the beginning. Even though I had little to no experience with Express during our previous group project, I felt more comfortable with the underlying Javascript language elements and promise chains that Express used. My first week before submission I wasted a lot of time trying to upload the .csv file, and I deviated away from my usual use of Trello to keep track of features that need to be worked on and improved. After initial submission, I went back and used Trello and more of the elements of React started to make sense, from there I was able to complete all CRUD actions. The app was originally inspired to have a Draftkings type format, where a user creates a set team consisting of actual players that have automatic dollar values. When you run out of positions or dollars to choose players, your team is complete. In future versions of this application I hope to incorporate those variables and re implement my .csv file
+
+# Wireframe
+<a href="https://imgur.com/PWwOkWq"><img src="https://i.imgur.com/PWwOkWq.jpg" title="source: imgur.com" /></a>
+
 
 ## Installation
 
@@ -26,69 +49,6 @@ This template is derived from GA Boston's [react-template](https://git.generalas
 Most of the development dependencies, such as linters, SCSS compiler, Webpack
 config, NPM scripts, etc in this repo come from there.
 
-It includes all the components and routes needed to sign up, sign in, change
-passwords, and sign out of an API built with either template linked above, with
-no need for modification.
-
-**NOTE**: You should customize the included components to suit you app! They're
-provided as a guide and a bare minimum of functionality and style. Consider
-changing the provided SCSS styles, modifying the auth code, improving the flash
-messages, etc.
-
-## Structure
-
-Currently, the top-level `App` component stores the currently authenticated
-user in state, as well as data related to the flash messages. `App` renders the
-`Header` component, and a list of routes, each of which render a component from
-`src/auth/components`. The `auth` directory has two non-component files, `api`
-and `messages`, which contain all the needed `fetch` calls, and messages to
-display when API calls succeed or fail, respectively.
-
-We recommend following this pattern in your app. For instance, if you are making
-an app that keeps track of books, you might want a `books` directory next to
-`auth`, which contains its own `api` and `messages` files, as well as a
-`components` directory.
-
-## Features
-
-### `<AuthenticatedRoute />`
-
-This template contains a handy component for creating routes that require a
-user to be authenticated before visiting. This component lives in
-`src/auth/components/AuthenticatedRoute.js` and is already required in `App`.
-It's a thin wrapper around React Router's `<Route />` component. The only
-difference is that it expects a prop called `user`, and if that prop is falsy,
-it will render a `<Redirect />` that takes the user to `/`. **If you want to use
-it, you must pass it the currently authenticated as a prop!**
-
-It supports both the `component=` and `render=` attributes, but like `<Route />`
-it will not forward props to the component if you use `component=`.
-
-### Flash Messages
-
-The `App` component has a rudimentary version of flash messages. To use it,
-pass `this.flash` into a subcomponent of `App` as a prop and call it from there.
-It expects two arguments: a message to display, and a message type, which is one
-of `'flash-success'`, `'flash-warning'`, and `'flash-error'` which make the
-message green, yellow, and red, respectively. You must pass one of these types.
-You can add more types by adding more CSS rules in `App.scss`.
-
-In the auth components, flash messages are used in conjunction with the
- `auth/messages` file to select from a list of predefined success/failure
- messages. To undertand how to do this, look at the definition of `flash` in
- `App.js`, the `signUp` method in `auth/components/SignUp.js`, and the
- `auth/messages.js` file.
-
- To change the duration of the message, replace `2000` with a value of your
- choice (in milliseconds) in the `flash` method definition in `App.js`.
-
- ### `src/apiConfig.js`
-
- Just like in
-[browser-template](https://git.generalassemb.ly/ga-wdi-boston/browser-template),
-this file will determine whether you're in a production or development
-environment and choose an API URL accordingly. Don't forget to replace the
-`production` URL with your deployed API's URL.
 
 ## [License](LICENSE)
 
