@@ -3,16 +3,18 @@ import React from 'react'
 const Team = props => {
   return (
     <div>
-      <h3>ID: { props.data.id }</h3>
-      <p> QuarterBack: { props.data.qb }</p>
-      <p> RunningBack 1: { props.data.rb1 }</p>
-      <p> RunningBack 2: { props.data.rb2 }</p>
-      <p> Wide Receiver 1: { props.data.wr1 }</p>
-      <p> Wide Receiver 2: { props.data.wr2 }</p>
-      <p> Wide Receiver 3: { props.data.wr3 }</p>
-      <p> Tight End: { props.data.te }</p>
-      <p> Flex: { props.data.flex }</p>
-      <p> Defense: { props.data.dst }</p>
+      <h3>ID: { props.data._id }</h3>
+      <p> Team Name: { props.data.teamName }</p>
+      <p> QuarterBack Name: { props.data.players[0]}</p>
+      <p> QuarterBack Dollar: { props.data.players[1]}</p>
+      <p> RunningBack Name: { props.data.players[2] }</p>
+      <p> RunningBack Dollar: { props.data.players[3] }</p>
+      <p> Wide Receiver Name: { props.data.players[4]}</p>
+      <p> Wide Receiver Dollar: { props.data.players[5] }</p>
+      <p> Tight End Name: { props.data.players[6] }</p>
+      <p> Tight End Dollar: { props.data.players[7] }</p>
+      <p> Defense Name: { props.data.players[8] }</p>
+      <p> Defense Dollar: { props.data.players[9] }</p>
     </div>
   )
 }

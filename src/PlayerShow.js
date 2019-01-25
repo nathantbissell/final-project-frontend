@@ -32,7 +32,7 @@ class PlayerShow extends Component {
   getPlayer = () => {
     // get request to get a single player using axios
     axios
-      .get(apiUrl, `/players/${this.state.playerIndex}`)
+      .get(apiUrl `/players/${this.state.playerIndex}`)
       .then(res => this.setState({ playerData: res.data.player }))
       .catch(console.error)
   }

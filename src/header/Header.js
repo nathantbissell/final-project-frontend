@@ -7,7 +7,7 @@ const authenticatedOptions = (
   <React.Fragment>
     <Link to="/change-password">Change Password</Link>
     <Link to="/sign-out">Sign Out</Link>
-    <Link to='/players'>Players</Link>
+    <Link to='/show-team'>My Team</Link>
     <Link to='/update-team'>Edit</Link>
     <Link to='/create-team'>Create</Link>
     <Link to='/delete-team'>Delete</Link>

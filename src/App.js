@@ -13,6 +13,8 @@ import PlayerIndex from './PlayerIndex.js'
 import TeamCreate from './TeamCreate.js'
 import TeamDelete from './TeamDelete.js'
 import TeamUpdate from './TeamUpdate.js'
+import TeamShow from './TeamShow.js'
+import TeamIndex from './TeamIndex.js'
 
 class App extends Component {
   constructor() {
@@ -77,10 +79,16 @@ class App extends Component {
             render={() => <ChangePassword flash={this.flash} user={user} />}
           />
 
-          <AuthenticatedRoute
+          {/* <AuthenticatedRoute
             user={user}
             path='/players'
             render={() => <PlayerIndex user={user} />}
+          /> */}
+
+          <AuthenticatedRoute
+            user={user}
+            path='/show-team'
+            render={() => <TeamShow user={user} />}
           />
 
           <AuthenticatedRoute
