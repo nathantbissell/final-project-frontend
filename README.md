@@ -15,10 +15,10 @@ All these routes included the authenticated route template that was given throug
 
 
 # Authentication Routes:
-Sign up: '/sign-up'
-Sign in: '/sign-in'
-Change password: '/change-password'
-Sign Out of Application: '/sign-out'
+- Sign up: '/sign-up'
+- Sign in: '/sign-in'
+- Change password: '/change-password'
+- Sign Out of Application: '/sign-out'
 
 # Additional Features
 
