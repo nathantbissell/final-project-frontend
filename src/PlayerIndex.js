@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import Player from './Player.js'
+import apiUrl from './apiConfig'
 
 class PlayerIndex extends Component {
   constructor(props) {
@@ -29,7 +30,7 @@ class PlayerIndex extends Component {
     const { flash } = this.props
     // get all players
     axios
-      .get('http://localhost:4741/players', {
+      .get(apiUrl, '/players', {
         headers: {
           Authorization: `Token token=${this.props.user.token}`
         }

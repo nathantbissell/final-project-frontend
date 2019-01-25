@@ -35,7 +35,7 @@ class PlayerUpdate extends Component {
     // post request to create a single player using axios
 
     axios
-      .patch(`http://localhost:4741/players/${parseInt(id)}`, {
+      .patch(apiUrl, `/players/${parseInt(id)}`, {
         player: { id, name, pos, dollar }
       })
       .then(res =>
