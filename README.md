@@ -32,6 +32,25 @@ I was determined to use Express as my backend and React as my frontend library f
 <a href="https://imgur.com/PWwOkWq"><img src="https://i.imgur.com/PWwOkWq.jpg" title="source: imgur.com" /></a>
 
 
+ # User Stories
+	* 
+A user can create a team with a unique team name
+	* 
+A user can edit players on their own team
+	* 
+A user can choose players from a list of the players given to them by the rotoreact website
+	* 
+A user has the ability to delete their team
+	* 
+A user has the ability to edit their existing team name
+	* 
+A user has the ability to edit their existing team players before a given contest
+	* 
+A user will have the ability to make multiple entries of the same existing lineup with multiple teams
+
+
+
+
 ## Installation
 
 1. [Download](../../archive/master.zip) this template.
