@@ -3,6 +3,7 @@
 // component
 import React, { Component } from 'react'
 import axios from 'axios'
+import apiUrl from './apiConfig'
 
 //the name of the component should match the name
 // of the file

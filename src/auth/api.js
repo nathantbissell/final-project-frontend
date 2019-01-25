@@ -1,4 +1,5 @@
-const apiUrl = 'https://guarded-falls-97072.herokuapp.com'
+import apiUrl from '../apiConfig.js'
+// const apiUrl = 'https://guarded-falls-97072.herokuapp.com'
 
 export const handleErrors = res => {
   if (res.ok) {

@@ -4,6 +4,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import Player from './Player.js'
+import apiUrl from './apiConfig'
 
 //the name of the component should match the name
 // of the file
@@ -31,7 +32,7 @@ class PlayerShow extends Component {
   getPlayer = () => {
     // get request to get a single player using axios
     axios
-      .get(`http://localhost:4741/players/${this.state.playerIndex}`)
+      .get(apiUrl, `/players/${this.state.playerIndex}`)
       .then(res => this.setState({ playerData: res.data.player }))
       .catch(console.error)
   }
