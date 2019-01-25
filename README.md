@@ -6,10 +6,10 @@ https://nathantbissell.github.io/final-project-frontend
 My application used a react-auth-template created by General Assembly, and the [Express API Template](https://git.generalassemb.ly/ga-wdi-boston/express-api-template). They both required both npm install and the download and unzip of these templates. After initializing a git repository, I deployed my express backend to Heroku and the frontend was deployed to Github pages.
 
 # Frontend Routes (CRUD actions)
-View your team (requires an existing team ID): '/show-team'
-Update your team (requires existing team ID): '/update-team'
-Create a team (requires a team name): '/create-team'
-Delete a team (requires a existing team ID): '/delete-team'
+- View your team (requires an existing team ID): '/show-team'
+- Update your team (requires existing team ID): '/update-team'
+- Create a team (requires a team name): '/create-team'
+- Delete a team (requires a existing team ID): '/delete-team'
 
 All these routes included the authenticated route template that was given through General Assembly. These routes allowed us to pass user properties, and then allow us to pass a token in order to verify the user. 
 
