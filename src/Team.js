@@ -4,7 +4,7 @@ const Team = props => {
   return (
     <div>
       <h3>ID: { props.data._id }</h3>
-      <p> Team Name: { props.data.teamName }</p>
+      <h4> Team Name: { props.data.teamName }</h4>
       <p> QuarterBack Name: { props.data.players[0]}</p>
       <p> QuarterBack Dollar: { props.data.players[1]}</p>
       <p> RunningBack Name: { props.data.players[2] }</p>
