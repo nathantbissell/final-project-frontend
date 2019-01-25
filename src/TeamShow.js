@@ -7,7 +7,6 @@ class TeamShow extends Component {
   // this is your basic constructor setup
   constructor(props) {
     super(props)
-    console.log('props.data= ', props.data)
     this.state = {
       id: '',
       message: null,
@@ -27,9 +26,6 @@ class TeamShow extends Component {
         Authorization: `Token token=${this.props.user.token}`
       }
     }
-    console.log('url is', url)
-    console.log('options is', options)
-    console.log('data is', propData)
     axios
       .get(url, propData, options)
       .then(res => this.setState({ teamData: res.data.team }))

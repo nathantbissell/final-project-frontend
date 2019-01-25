@@ -6,10 +6,6 @@ class TeamCreate extends Component {
   // this is your basic constructor setup
   constructor(props) {
     super(props)
-    console.log('props.user = ', props.user)
-    console.log('props.user.token = ', props.user.token)
-    console.log('props.user.id', props.user.id)
-    console.log('props.user._id = ', props.user._id)
     this.state = {
       teamName: '',
       players: [],

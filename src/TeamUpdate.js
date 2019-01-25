@@ -6,8 +6,6 @@ class TeamUpdate extends Component {
   // this is your basic constructor setup
   constructor(props) {
     super(props)
-    console.log('props.user.token = ', props.user.token)
-    console.log('props.user._id = ', props.user._id)
     this.state = {
       id: '',
       qbName: '',
@@ -64,9 +62,6 @@ class TeamUpdate extends Component {
         Authorization: `Token token=${this.props.user.token}`
       }
     }
-    console.log('url is', url)
-    console.log('options is', options)
-    console.log('data is', data)
     axios.patch(url, data, options)
       .then(res =>
         this.setState({

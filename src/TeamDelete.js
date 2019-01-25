@@ -31,7 +31,7 @@ class TeamDelete extends Component {
       .then(res =>
         this.setState({ message: `You deleted a team, ID: ${this.state.id}` })
       )
-      .catch(console.log (`this.state._id ${this.state._id}`))
+      .catch(console.error)
   }
 
   onIdChange = event => this.setState({ id: event.target.value })
