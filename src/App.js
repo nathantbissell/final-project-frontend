@@ -9,7 +9,7 @@ import SignIn from './auth/components/SignIn'
 import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
 
-import PlayerIndex from './PlayerIndex.js'
+import PlayerList from './PlayerList.js'
 import TeamCreate from './TeamCreate.js'
 import TeamDelete from './TeamDelete.js'
 import TeamUpdate from './TeamUpdate.js'
@@ -61,6 +61,7 @@ class App extends Component {
             path='/sign-in'
             render={() => <SignIn flash={this.flash} setUser={this.setUser} />}
           />
+          <Route path='/list' render={() => <PlayerList />} />
           {/* AuthenticatedRoute is used ONLY when a user has been signed in and has a valid token */}
           <AuthenticatedRoute
             user={user}
@@ -78,13 +79,6 @@ class App extends Component {
             path='/change-password'
             render={() => <ChangePassword flash={this.flash} user={user} />}
           />
-
-          {/* <AuthenticatedRoute
-            user={user}
-            path='/players'
-            render={() => <PlayerIndex user={user} />}
-          /> */}
-
           <AuthenticatedRoute
             user={user}
             path='/show-team'
