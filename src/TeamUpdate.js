@@ -90,64 +90,64 @@ class TeamUpdate extends Component {
 
   render() {
     return (
-      <div className='playerAddMain'>
-        <form onSubmit={this.updateTeam}>
-          <input
+      <div>
+        <form className='playerAddMain' onSubmit={this.updateTeam}>
+          <input className='playerAdd'
             placeholder='Team ID'
             value={this.state.id}
             onChange={this.onIdChange}
           />
-          <input
+          <input className='playerAdd'
             placeholder='QB Name'
             value={this.state.qbName}
             onChange={this.onQBNameChange}
           />
-          <input
+          <input className='playerAdd'
             placeholder='QB Dollars'
             value={this.state.qbDollar}
             onChange={this.onQBDollarChange}
           />
-          <input
+          <input className='playerAdd'
             placeholder='RB Name'
             value={this.state.rbName}
             onChange={this.onRBNameChange}
           />
-          <input
+          <input className='playerAdd'
             placeholder='RB Dollars'
             value={this.state.rbDollar}
             onChange={this.onRBDollarChange}
           />
-          <input
+          <input className='playerAdd'
             placeholder='WR Name'
             value={this.state.wrName}
             onChange={this.onWRNameChange}
           />
-          <input
+          <input className='playerAdd'
             placeholder='WR Dollars'
             value={this.state.wrDollar}
             onChange={this.onWRDollarChange}
           />
-          <input
+          <input className='playerAdd'
             placeholder='TE Name'
             value={this.state.teName}
             onChange={this.onTENameChange}
           />
-          <input
+          <input className='playerAdd'
             placeholder='TE Dollars'
             value={this.state.teDollar}
             onChange={this.onTEDollarChange}
           />
-          <input
+          <input className='playerAdd'
             placeholder='DST Name'
             value={this.state.dstName}
             onChange={this.onDSTNameChange}
           />
-          <input
+          <input className='playerAdd'
             placeholder='DST Dollars'
             value={this.state.dstDollar}
             onChange={this.onDSTDollarChange}
           />
-          <input type='submit' value='Create Team!' />
+          <button type='submit' className="btn btn-danger">Create</button>
         </form>
         {this.state.message && <span> {this.state.message}</span>}
       </div>
