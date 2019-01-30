@@ -30,7 +30,7 @@ const alwaysOptions = (
 const Header = ({ user }) => (
   // destructured user
   <header className="main-header">
-    <h1>Rotoreact</h1>
+    <h1>Roto-react</h1>
     <nav>
       { user && <span>Welcome, {user.email}</span>}
       { user ? authenticatedOptions : unauthenticatedOptions }

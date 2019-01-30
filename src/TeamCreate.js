@@ -42,11 +42,11 @@ class TeamCreate extends Component {
     return (
       <div>
         <form onSubmit={this.createTeam}>
-          <input
+          <input className="inputShow"
             placeholder='Team Name'
             value={this.state.teamName}
             onChange={this.onNameChange}/>
-          <input type='submit' value='Create Team' />
+          <button type='submit' className="btn btn-danger">Create</button>
         </form>
         {this.state.message && <span> {this.state.message}</span>}
       </div>

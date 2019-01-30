@@ -65,7 +65,7 @@ class TeamUpdate extends Component {
     axios.patch(url, data, options)
       .then(res =>
         this.setState({
-          message: `made a new team with ID: ${res.data.team.id}`
+          message: `Updated a team with ID: ${id}`
         })
       )
       .catch(this.setState({ message: 'You have invalid form data' }))

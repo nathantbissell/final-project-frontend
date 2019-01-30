@@ -40,11 +40,11 @@ class TeamDelete extends Component {
     return (
       <div>
         <form onSubmit={this.deleteTeam}>
-          <input
+          <input className="inputShow"
             placeholder='Id of team'
             value={this.state.id}
             onChange={this.onIdChange}/>
-          <input type='submit' value='Delete Team' />
+          <button type='submit' className="btn btn-danger">Delete</button>
         </form>
         {this.state.message && <span>{this.state.message} </span>}
       </div>
