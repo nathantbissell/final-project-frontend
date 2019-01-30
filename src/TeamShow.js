@@ -36,14 +36,14 @@ class TeamShow extends Component {
 
   render() {
     return (
-      <div>
+      <div className='teamShow'>
         <form onSubmit={this.showTeam}>
-          <input
+          <input className='inputShow'
             placeholder='Team ID'
             value={this.state.id}
             onChange={this.onIdChange}
           />
-          <input type='submit' value='Show Team' />
+          <button type='submit' className="btn btn-danger">Show</button>
         </form>
         {this.state.teamData && <Team data={this.state.teamData} />}
       </div>

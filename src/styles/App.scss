@@ -3,6 +3,36 @@ $warning: #f1e681;
 $error: #f08181;
 $charcoal: #ccc;
 
+
+body {
+  background-color: #000;
+}
+
+.btn {
+  width: 75px;
+  padding: 10px;
+  font-size: 20px;
+  margin: 10px;
+  // margin-right: 0px;
+  height: 50px;
+  border: 2px solid #000;
+}
+
+.inputShow {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #fff;
+  width: 165px;
+}
+
+.btn:hover {
+  background-color: #000;
+  color: #dc3545;
+  border: 2px solid #dc3545;
+  cursor: pointer;
+}
+
+
 .flash-success,
 .flash-warning,
 .flash-error {
@@ -35,6 +65,7 @@ $charcoal: #ccc;
   justify-content: center;
   margin: 15% auto 0;
   max-width: 600px;
+
 
   h3,
   input {
