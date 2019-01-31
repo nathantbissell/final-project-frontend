@@ -2,7 +2,7 @@ import React from 'react'
 
 const Team = props => {
   return (
-    <div>
+    <div className='teamDisplay'>
       <h3>ID: { props.data._id }</h3>
       <h4> Team Name: { props.data.teamName }</h4>
       <p> QuarterBack Name: { props.data.players[0]}</p>

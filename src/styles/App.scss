@@ -101,3 +101,14 @@ body {
     max-width: 100px;
   }
 }
+
+.teamDisplay {
+  color: white;
+  margin: -10px;
+  padding: 10px;
+  flex-direction: start;
+
+  h3, h4 {
+    color: #dc3545;
+  }
+}

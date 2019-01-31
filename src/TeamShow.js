@@ -9,6 +9,7 @@ class TeamShow extends Component {
     super(props)
     this.state = {
       id: '',
+      teamName: '',
       message: null,
       teamData: null
     }
@@ -16,10 +17,10 @@ class TeamShow extends Component {
 
   showTeam = event => {
     event.preventDefault()
-    const { id } = this.state
+    const { id, teamName } = this.state
 
-    const propData = { id }
-    const url = apiUrl + `/teams/${id}`
+    const propData = { teamName }
+    const url = apiUrl + '/teams'
     const options = {
       headers: {
         'Content-Type': 'application/json',
@@ -32,7 +33,7 @@ class TeamShow extends Component {
       .catch(this.setState({ message: 'Unable to get this team' }))
   }
 
-  onIdChange = event => this.setState({ id: event.target.value })
+  onNameChange = event => this.setState({ teamName: event.target.value })
 
   render() {
     return (
@@ -40,8 +41,8 @@ class TeamShow extends Component {
         <form onSubmit={this.showTeam}>
           <input className='inputShow'
             placeholder='Team ID'
-            value={this.state.id}
-            onChange={this.onIdChange}
+            value={this.state.teamName}
+            onChange={this.onNameChange}
           />
           <button type='submit' className="btn btn-danger">Show</button>
         </form>
