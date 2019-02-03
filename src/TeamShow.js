@@ -8,8 +8,8 @@ class TeamShow extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      id: '',
       teamName: '',
+      players: [],
       message: null,
       teamData: null
     }
@@ -17,19 +17,25 @@ class TeamShow extends Component {
 
   showTeam = event => {
     event.preventDefault()
-    const { id, teamName } = this.state
 
-    const propData = { teamName }
-    const url = apiUrl + '/teams'
+    const propData = {
+      team: {
+        teamName: this.state.teamName
+      }
+    }
+    const url = apiUrl + '/team'
     const options = {
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Token token=${this.props.user.token}`
+        'Authorization': `Token token=${this.props.user.token}`
       }
     }
+    console.log('url', url)
+    console.log('propData', propData)
+    console.log('options', options)
     axios
       .get(url, propData, options)
-      .then(res => this.setState({ teamData: res.data.team }))
+      .then(res => this.setState({ data: res.data.team }))
       .catch(this.setState({ message: 'Unable to get this team' }))
   }
 
@@ -39,14 +45,17 @@ class TeamShow extends Component {
     return (
       <div className='teamShow'>
         <form onSubmit={this.showTeam}>
-          <input className='inputShow'
-            placeholder='Team ID'
+          <input
+            className='inputShow'
+            placeholder='Team Name'
             value={this.state.teamName}
             onChange={this.onNameChange}
           />
-          <button type='submit' className="btn btn-danger">Show</button>
+          <button type='submit' className='btn btn-danger'>
+            Show
+          </button>
         </form>
-        {this.state.teamData && <Team data={this.state.teamData} />}
+        {this.state.data && <Team data={this.state.data} />}
       </div>
     )
   }
