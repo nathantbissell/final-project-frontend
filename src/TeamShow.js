@@ -9,35 +9,54 @@ class TeamShow extends Component {
     super(props)
     this.state = {
       teamName: '',
-      players: [],
       message: null,
-      teamData: null
+      data: null
     }
   }
 
   showTeam = event => {
     event.preventDefault()
 
-    const propData = {
-      team: {
-        teamName: this.state.teamName
-      }
-    }
-    const url = apiUrl + '/team'
+    // const data = {
+    //   team: {
+    //     teamName: this.state.teamName
+    //   }
+    // }
+    const url = apiUrl + '/team/' + this.state.teamName
     const options = {
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Token token=${this.props.user.token}`
+        Authorization: `Token token=${this.props.user.token}`
       }
     }
     console.log('url', url)
-    console.log('propData', propData)
+    // console.log('propData', data)
     console.log('options', options)
     axios
-      .get(url, propData, options)
+      .get(url, options)
       .then(res => this.setState({ data: res.data.team }))
       .catch(this.setState({ message: 'Unable to get this team' }))
   }
+  //   axios({
+  //     method: 'get',
+  //     url: 'http://localhost:4741/team',
+  //     data: {
+  //       team: {
+  //         teamName: this.state.teamName
+  //       }
+  //     }
+  //   })
+
+  // fetch(url, {
+  //   method: 'GET',
+  //   headers: {
+  //     'Content-Type': 'application/json',
+  //     Authorization: `Token token=${this.props.user.token}`
+  //   },
+  //   body: JSON.stringify({
+  //     teamName: this.state.teamName
+  //   })
+  // })
 
   onNameChange = event => this.setState({ teamName: event.target.value })
 

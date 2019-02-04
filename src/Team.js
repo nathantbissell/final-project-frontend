@@ -5,7 +5,7 @@ const Team = props => {
     <div className='teamDisplay'>
       <h3>ID: { props.data._id }</h3>
       <h4> Team Name: { props.data.teamName }</h4>
-      <p> QuarterBack Name: { props.data.players}</p>
+      <p> QuarterBack Name: { props.data.players[0]}</p>
       <p> QuarterBack Dollar: { props.data.players[1]}</p>
       <p> RunningBack Name: { props.data.players[2] }</p>
       <p> RunningBack Dollar: { props.data.players[3] }</p>
