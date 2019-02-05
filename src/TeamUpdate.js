@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import apiUrl from './apiConfig'
+import messages from './auth/messages.js'
+
 
 class TeamUpdate extends Component {
   // this is your basic constructor setup
@@ -18,7 +20,7 @@ class TeamUpdate extends Component {
       teDollar: '',
       dstName: '',
       dstDollar: '',
-      message: null
+      message: ''
     }
   }
 
@@ -63,14 +65,17 @@ class TeamUpdate extends Component {
         Authorization: `Token token=${this.props.user.token}`
       }
     }
-    axios.patch(url, data, options)
+    axios
+      .patch(url, data, options)
       .then(res =>
         this.setState({
-          message: `Updated: ${this.state.teamName}`
+          message: `Updated: ${teamName}`
         })
       )
-      .catch(this.setState({ message: 'You have invalid form data' }))
+      .then(() => this.props.flash(messages.teamUpdateSuccess, 'flash-success'))
+      .catch(() => this.props.flash(messages.teamUpdateFailure, 'flash-error'))
   }
+
 
   onNameChange = event => this.setState({ teamName: event.target.value })
 
@@ -92,63 +97,79 @@ class TeamUpdate extends Component {
   render() {
     return (
       <div>
-        <form className='playerAddMain' onSubmit={this.updateTeam}>
-          <input className='playerAdd'
+        <form
+          className='playerAddMain'
+          onSubmit={this.updateTeam}
+        >
+          <input
+            className='playerAdd'
             placeholder='Team Name'
             value={this.state.teamName}
             onChange={this.onNameChange}
           />
-          <input className='playerAdd'
+          <input
+            className='playerAdd'
             placeholder='QB Name'
             value={this.state.qbName}
             onChange={this.onQBNameChange}
           />
-          <input className='playerAdd'
+          <input
+            className='playerAdd'
             placeholder='QB Dollars'
             value={this.state.qbDollar}
             onChange={this.onQBDollarChange}
           />
-          <input className='playerAdd'
+          <input
+            className='playerAdd'
             placeholder='RB Name'
             value={this.state.rbName}
             onChange={this.onRBNameChange}
           />
-          <input className='playerAdd'
+          <input
+            className='playerAdd'
             placeholder='RB Dollars'
             value={this.state.rbDollar}
             onChange={this.onRBDollarChange}
           />
-          <input className='playerAdd'
+          <input
+            className='playerAdd'
             placeholder='WR Name'
             value={this.state.wrName}
             onChange={this.onWRNameChange}
           />
-          <input className='playerAdd'
+          <input
+            className='playerAdd'
             placeholder='WR Dollars'
             value={this.state.wrDollar}
             onChange={this.onWRDollarChange}
           />
-          <input className='playerAdd'
+          <input
+            className='playerAdd'
             placeholder='TE Name'
             value={this.state.teName}
             onChange={this.onTENameChange}
           />
-          <input className='playerAdd'
+          <input
+            className='playerAdd'
             placeholder='TE Dollars'
             value={this.state.teDollar}
             onChange={this.onTEDollarChange}
           />
-          <input className='playerAdd'
+          <input
+            className='playerAdd'
             placeholder='DST Name'
             value={this.state.dstName}
             onChange={this.onDSTNameChange}
           />
-          <input className='playerAdd'
+          <input
+            className='playerAdd'
             placeholder='DST Dollars'
             value={this.state.dstDollar}
             onChange={this.onDSTDollarChange}
           />
-          <button type='submit' className="btn btn-danger">Create</button>
+          <button type='submit' className='btn btn-danger'>
+            Create
+          </button>
         </form>
         {this.state.message && <span> {this.state.message}</span>}
       </div>

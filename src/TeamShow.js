@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import Team from './Team.js'
 import apiUrl from './apiConfig'
+import messages from './auth/messages.js'
+
 
 class TeamShow extends Component {
   // this is your basic constructor setup
@@ -9,7 +11,6 @@ class TeamShow extends Component {
     super(props)
     this.state = {
       teamName: '',
-      message: null,
       data: null
     }
   }
@@ -29,7 +30,8 @@ class TeamShow extends Component {
     axios
       .get(url, options)
       .then(res => this.setState({ data: res.data.team }))
-      .catch(this.setState({ message: 'Unable to get this team' }))
+      .then(() => this.props.flash(messages.teamShowSuccess, 'flash-success'))
+      .catch(() => this.props.flash(messages.teamShowFailure, 'flash-error'))
   }
 
   onNameChange = event => this.setState({ teamName: event.target.value })

@@ -8,7 +8,7 @@ import SignUp from './auth/components/SignUp'
 import SignIn from './auth/components/SignIn'
 import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
-
+import messages from './auth/messages.js'
 import PlayerIndex from './PlayerIndex.js'
 import TeamCreate from './TeamCreate.js'
 import TeamDelete from './TeamDelete.js'
@@ -82,28 +82,28 @@ class App extends Component {
           <AuthenticatedRoute
             user={user}
             path='/show-team'
-            render={() => <TeamShow user={user} />}
+            render={() => <TeamShow flash={this.flash} user={user} />}
           />
 
           <AuthenticatedRoute
             user={user}
             path='/update-team'
-            render={() => <TeamUpdate user={user} />}
+            render={() => <TeamUpdate flash={this.flash} user={user} />}
           />
           <AuthenticatedRoute
             user={user}
             path='/create-team'
-            render={() => <TeamCreate user={user} />}
+            render={() => <TeamCreate flash={this.flash} user={user} />}
           />
           <AuthenticatedRoute
             user={user}
             path='/delete-team'
-            render={() => <TeamDelete user={user} />}
+            render={() => <TeamDelete flash={this.flash} user={user} />}
           />
         </main>
         <body className='home'>
           <div className='homeContent'>
-            <p>Welcome to Roto-React!</p>
+            {/* <p>Welcome to Roto-React!</p> */}
             
           </div>
         </body>

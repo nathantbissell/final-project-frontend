@@ -8,5 +8,13 @@ export default {
   signOutSuccess: 'Come back soon!',
   changePasswordSuccess: 'Password changed successfully!',
   changePasswordFailure: 'Failed to change passwords. Check your old password' +
-                         ' and try again.'
+                         ' and try again.',
+  teamShowSuccess:'Successfully pulled up team!',
+  teamShowFailure:'Failed to show team',
+  teamCreateSuccess:'Successfully created new team!',
+  teamCreateFailure:'Failed to create team',
+  teamUpdateSuccess:'Successfully updated your team!',
+  teamUpdateFailure:'Failed to update team',
+  teamDeleteSuccess:'Successfully deleted your team',
+  teamDeleteFailure:'Failed to delete team',
 }

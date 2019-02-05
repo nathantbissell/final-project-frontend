@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import apiUrl from './apiConfig'
+import messages from './auth/messages.js'
+
 
 class TeamDelete extends Component {
   constructor(props) {
@@ -15,11 +17,6 @@ class TeamDelete extends Component {
     event.preventDefault()
     const { id } = this.state
     const url = apiUrl + `/teams/${id}`
-    // const data = {
-    //   team: {
-    //     _id: this.state._id
-    //   }
-    // }
     const options = {
       headers: {
         'Content-Type': 'application/json',
@@ -31,7 +28,8 @@ class TeamDelete extends Component {
       .then(res =>
         this.setState({ message: `You deleted a team, ID: ${this.state.id}` })
       )
-      .catch(console.error)
+      .then(() => this.props.flash(messages.teamDeleteSuccess, 'flash-success'))
+      .catch(() => this.props.flash(messages.teamDeleteFailure, 'flash-error'))
   }
 
   onIdChange = event => this.setState({ id: event.target.value })

@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import apiUrl from './apiConfig'
+import messages from './auth/messages.js'
+
 
 class TeamCreate extends Component {
   // this is your basic constructor setup
@@ -33,7 +35,8 @@ class TeamCreate extends Component {
       .then(res =>
         this.setState({ message: `made new team with ID: ${res.data.team._id}` })
       )
-      .catch(console.error)
+      .then(() => this.props.flash(messages.teamCreateSuccess, 'flash-success'))
+      .catch(() => this.props.flash(messages.teamCreateFailure, 'flash-error'))
   }
 
   onNameChange = event => this.setState({ teamName: event.target.value })
