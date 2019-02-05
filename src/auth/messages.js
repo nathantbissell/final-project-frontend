@@ -16,5 +16,5 @@ export default {
   teamUpdateSuccess:'Successfully updated your team!',
   teamUpdateFailure:'Failed to update team',
   teamDeleteSuccess:'Successfully deleted your team',
-  teamDeleteFailure:'Failed to delete team',
+  teamDeleteFailure:'Failed to delete team'
 }

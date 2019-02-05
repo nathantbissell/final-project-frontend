@@ -8,15 +8,14 @@ class TeamDelete extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      id: '',
+      teamName: '',
       message: null
     }
   }
 
   deleteTeam = event => {
     event.preventDefault()
-    const { id } = this.state
-    const url = apiUrl + `/teams/${id}`
+    const url = apiUrl + '/teams/' + this.state.teamName
     const options = {
       headers: {
         'Content-Type': 'application/json',
@@ -25,22 +24,19 @@ class TeamDelete extends Component {
     }
 
     axios.delete(url, options)
-      .then(res =>
-        this.setState({ message: `You deleted a team, ID: ${this.state.id}` })
-      )
       .then(() => this.props.flash(messages.teamDeleteSuccess, 'flash-success'))
       .catch(() => this.props.flash(messages.teamDeleteFailure, 'flash-error'))
   }
 
-  onIdChange = event => this.setState({ id: event.target.value })
+  onIdChange = event => this.setState({ teamName: event.target.value })
 
   render() {
     return (
       <div>
         <form onSubmit={this.deleteTeam}>
           <input className="inputShow"
-            placeholder='Id of team'
-            value={this.state.id}
+            placeholder='Team Name'
+            value={this.state.teamName}
             onChange={this.onIdChange}/>
           <button type='submit' className="btn btn-danger">Delete</button>
         </form>
