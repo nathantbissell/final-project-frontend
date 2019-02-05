@@ -16,12 +16,6 @@ class TeamShow extends Component {
 
   showTeam = event => {
     event.preventDefault()
-
-    // const data = {
-    //   team: {
-    //     teamName: this.state.teamName
-    //   }
-    // }
     const url = apiUrl + '/team/' + this.state.teamName
     const options = {
       headers: {
@@ -37,26 +31,6 @@ class TeamShow extends Component {
       .then(res => this.setState({ data: res.data.team }))
       .catch(this.setState({ message: 'Unable to get this team' }))
   }
-  //   axios({
-  //     method: 'get',
-  //     url: 'http://localhost:4741/team',
-  //     data: {
-  //       team: {
-  //         teamName: this.state.teamName
-  //       }
-  //     }
-  //   })
-
-  // fetch(url, {
-  //   method: 'GET',
-  //   headers: {
-  //     'Content-Type': 'application/json',
-  //     Authorization: `Token token=${this.props.user.token}`
-  //   },
-  //   body: JSON.stringify({
-  //     teamName: this.state.teamName
-  //   })
-  // })
 
   onNameChange = event => this.setState({ teamName: event.target.value })
 

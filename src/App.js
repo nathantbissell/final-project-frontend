@@ -79,12 +79,6 @@ class App extends Component {
             render={() => <ChangePassword flash={this.flash} user={user} />}
           />
 
-          {/* <AuthenticatedRoute
-            user={user}
-            path='/players'
-            render={() => <PlayerIndex user={user} />}
-          /> */}
-
           <AuthenticatedRoute
             user={user}
             path='/show-team'
@@ -107,6 +101,12 @@ class App extends Component {
             render={() => <TeamDelete user={user} />}
           />
         </main>
+        <body className='home'>
+          <div className='homeContent'>
+            <p>Welcome to Roto-React!</p>
+            
+          </div>
+        </body>
       </React.Fragment>
     )
   }

@@ -7,7 +7,7 @@ class TeamUpdate extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      id: '',
+      teamName: '',
       qbName: '',
       qbDollar: '',
       rbName: '',
@@ -25,7 +25,7 @@ class TeamUpdate extends Component {
   updateTeam = event => {
     event.preventDefault()
     const {
-      id,
+      teamName,
       qbName,
       qbDollar,
       rbName,
@@ -40,7 +40,7 @@ class TeamUpdate extends Component {
 
     const data = {
       team: {
-        id,
+        teamName,
         players: [
           qbName,
           qbDollar,
@@ -55,7 +55,8 @@ class TeamUpdate extends Component {
         ]
       }
     }
-    const url = apiUrl + `/teams/${id}`
+    const url = apiUrl + '/teams/' + teamName
+    console.log(url)
     const options = {
       headers: {
         'Content-Type': 'application/json',
@@ -65,13 +66,13 @@ class TeamUpdate extends Component {
     axios.patch(url, data, options)
       .then(res =>
         this.setState({
-          message: `Updated a team with ID: ${id}`
+          message: `Updated: ${this.state.teamName}`
         })
       )
       .catch(this.setState({ message: 'You have invalid form data' }))
   }
 
-  onIdChange = event => this.setState({ id: event.target.value })
+  onNameChange = event => this.setState({ teamName: event.target.value })
 
   onQBNameChange = event => this.setState({ qbName: event.target.value })
   onQBDollarChange = event => this.setState({ qbDollar: event.target.value })
@@ -93,9 +94,9 @@ class TeamUpdate extends Component {
       <div>
         <form className='playerAddMain' onSubmit={this.updateTeam}>
           <input className='playerAdd'
-            placeholder='Team ID'
-            value={this.state.id}
-            onChange={this.onIdChange}
+            placeholder='Team Name'
+            value={this.state.teamName}
+            onChange={this.onNameChange}
           />
           <input className='playerAdd'
             placeholder='QB Name'

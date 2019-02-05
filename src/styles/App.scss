@@ -83,6 +83,21 @@ body {
   background-color: $error;
 }
 
+.home {
+  font-family: 'Pridi', serif;
+  color: #fff;
+}
+
+.homeContent {
+  font-family: 'Pridi', serif;
+  color: #fff;
+  size: 40px;
+  margin: 50px;
+  padding: 10px;
+  font-size: 50px;
+  text-align: center;
+}
+
 .auth-form {
   display: flex;
   flex-direction: column;
