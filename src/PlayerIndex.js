@@ -1,78 +1,56 @@
-import React, { Component } from 'react'
 import axios from 'axios'
 import Player from './Player.js'
 import apiUrl from './apiConfig'
 
-class PlayerIndex extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      players: []
-    }
-    // this.addPlayer = this.addPlayer.bind(this)
-  }
+// class PlayerIndex extends Component {
+//   constructor(props) {
+//     super(props)
+//     this.state = {
+//       players: []
+//     }
+//   }
 
-  // addPlayer = (event) => {
-  //   // this.setState({ name: event.target.value })
-  //   const { id, name, pos, dollar } = this.state
-  //   console.log('within addPlayer')
-  //   console.log(this.state)
-  // }
+//   render() {
+//     const players = this.state.players.map((data, index) => {
+//       return <Player key={index} data={data} />
+//     })
+//     return <div>{players}</div>
+//   }
+// }
+// export default PlayerIndex
 
-  // onTeamChange = event => this.setState({ 
-  //   if (this.state.pos === 'qb')
-  //   {
-  //     this.setState({ id: event.target.value })
-  //   }))
-  // })
+// import React, { Component } from 'react'
+// import { render } from 'react-dom'
+// import {
+//   SortableContainer,
+//   SortableElement,
+//   arrayMove
+// } from 'react-sortable-hoc'
 
-  componentDidMount() {
-    const { flash } = this.props
-    // get all players
-    axios
-      .get(apiUrl, '/players', {
-        headers: {
-          Authorization: `Token token=${this.props.user.token}`
-        }
-      })
-      .then(res => {
-        this.setState({ players: res.data.players })
-      })
-      .then(() => this.props.flash('BIG MOOD', 'flash success'))
-      .catch(err => console.error(err))
-  }
+// const SortableItem = SortableElement(({ value }) => <li>{value}</li>)
 
-  // addPlayer = event => {
-  //   event.preventDefault()
-  //   console.log('in addPlayer()')
-  //   // const data = { ...this.state}
+// const SortableList = SortableContainer(({ items }) => {
+//   return (
+//     <ul>
+//       {items.map((value, index) => (
+//         <SortableItem key={`item-${index}`} index={index} value={value} />
+//       ))}
+//     </ul>
+//   )
+// })
 
-  //   // return axios.patch(data, this.props.user)
-  //   //   .then(() => this.props.flash('Added to Team')
-  //   //   .then(axios)
-  // }
+// class SortableComponent extends Component {
+//   state = {
+//     items: ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5', 'Item 6']
+//   }
+//   onSortEnd = ({ oldIndex, newIndex }) => {
+//     this.setState(({ items }) => ({
+//       items: arrayMove(items, oldIndex, newIndex)
+//     }))
+//   }
+//   render() {
+//     return <SortableList items={this.state.items} onSortEnd={this.onSortEnd} />
+//   }
+// }
 
-  // export const axiosPatchMovie = (data, user) => {
-  //   const { id } = data
-  //   delete data.id
-  //   return axios.patch(apiUrl + '/movies/' + id, { movie: { ...data }}, {
-  //     headers: {
-  //       'Authorization': `Token token=${user.token}`,
-  //     }
-  //   })
-  // }
-
-  render() {
-    const players = this.state.players.map((data, index) => {
-      return <Player key={index} data={data} />
-      // <button onClick={this.addPlayer}>NewAdd</button>
-    })
-    return (
-      <div>
-        {players}
-        {/* <button onClick={this.addPlayer}>NewAdd</button> */}
-      </div>
-    )
-  }
-}
-export default PlayerIndex
+// render(<SortableComponent />, document.getElementById('root'))
