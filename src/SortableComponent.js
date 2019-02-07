@@ -1,34 +1,65 @@
 import React, { Component } from 'react'
 import { render } from 'react-dom'
+import axios from 'axios'
+import apiUrl from './apiConfig'
 import {
   SortableContainer,
   SortableElement,
   arrayMove
 } from 'react-sortable-hoc'
 
-const SortableItem = SortableElement(({ value }) => <li>{value}</li>)
+const SortableItem = SortableElement(({ data }) => <li>{data}</li>)
 
-const SortableList = SortableContainer(({ items }) => {
+const SortableList = SortableContainer(({ players }) => {
   return (
     <ul>
-      {items.map((value, index) => (
-        <SortableItem key={`item-${index}`} index={index} value={value} />
+      {players.map((data, index) => (
+        <SortableItem key={`player-${index}`} index={index} data={data} />
       ))}
     </ul>
   )
 })
 
 class SortableComponent extends Component {
-  state = {
-    items: ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5', 'Item 6']
+  constructor(props) {
+    super(props)
+    this.state = {
+      players: [
+        'player 1',
+        'player 2',
+        'player 3',
+        'player 4',
+        'player 5',
+        'player 6'
+      ],
+      myTeam: ['player 1', 'player 2', 'player 3']
+    }
   }
+
+  //   componentDidMount() {
+  //     axios
+  //       .get(apiUrl + '/players')
+  //       .then(res => {
+  //         this.setState({ players: res.data.players })
+  //       })
+  //       .catch(err => console.error(err))
+  //   }
+
   onSortEnd = ({ oldIndex, newIndex }) => {
-    this.setState(({ items }) => ({
-      items: arrayMove(items, oldIndex, newIndex)
+    this.setState(({ players }) => ({
+      players: arrayMove(players, oldIndex, newIndex)
     }))
+    // this.setState(({ myTeam }) => ({
+    //   players: arrayMove(myTeam, oldIndex, newIndex)
+    // }))
   }
   render() {
-    return <SortableList items={this.state.items} onSortEnd={this.onSortEnd} />
+    return (
+      <div className='row'>
+        <SortableList players={this.state.players} onSortEnd={this.onSortEnd} />
+        {/* <SortableList players={this.state.myteam} onSortEnd={this.onSortEnd} /> */}
+      </div>
+    )
   }
 }
 

@@ -15,7 +15,7 @@ import TeamDelete from './TeamDelete.js'
 import TeamUpdate from './TeamUpdate.js'
 import TeamShow from './TeamShow.js'
 import TeamIndex from './TeamIndex.js'
-import SortableComponent from './SortableComponent.js'
+import DropList from './DropList.js'
 
 class App extends Component {
   constructor() {
@@ -62,7 +62,7 @@ class App extends Component {
             path='/sign-in'
             render={() => <SignIn flash={this.flash} setUser={this.setUser} />}
           />
-          <Route path='/list' render={() => <SortableComponent />} />
+          <Route path='/list' render={() => <DropList />} />
 
           <AuthenticatedRoute
             user={user}
