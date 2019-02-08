@@ -53,17 +53,17 @@
 
 .display {
   padding: 0px;
-
   font-size: 10px;
-  width: 100px;
+  width: 200px;
   height: 50px;
   align-items: center;
 }
 
 .p {
+  list-style: none;
   position: relative;
-  width: 50px;
+  width: 100px;
   height: 25px;
   top: -30px;
-  left: 25px;
+  left: 0px;
 }

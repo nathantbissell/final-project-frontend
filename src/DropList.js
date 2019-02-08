@@ -8,13 +8,31 @@ import apiUrl from './apiConfig'
 class DropList extends Component {
   state = {
     players: [
-      { name: 'Player 1', status: 'fa' },
-      { name: 'Player 2', status: 'fa' },
-      { name: 'Player 3', status: 'fa' },
-      { name: 'Player 4', status: 'fa' },
-      { name: 'Player 5', status: 'fa' },
-      { name: 'Player 6', status: 'fa' },
-      { name: 'Player 7', status: 'fa' }
+      { name: 'Patrick Mahomes', status: 'available' },
+      { name: 'Drew Brees', status: 'available' },
+      { name: 'Tom Brady', status: 'available' },
+      { name: 'Baker Mayfield', status: 'available' },
+      { name: 'Case Keenum', status: 'available' },
+      { name: 'Todd Gurley', status: 'available' },
+      { name: 'David Johnson', status: 'available' },
+      { name: 'Joe Mixon', status: 'available' },
+      { name: 'Phillip Lindsay', status: 'available' },
+      { name: 'Saquon Barkley', status: 'available' },
+      { name: 'DeAndre Hopkins', status: 'available' },
+      { name: 'Julio Jones', status: 'available' },
+      { name: 'ODell Beckham Jr', status: 'available' },
+      { name: 'Stefon Diggs', status: 'available' },
+      { name: 'AJ Green', status: 'available' },
+      { name: 'Emmanuel Sanders', status: 'available' },
+      { name: 'Jarvis Landry', status: 'available' },
+      { name: 'Tyreek Hill', status: 'available' },
+      { name: 'Travis Kelce', status: 'available' },
+      { name: 'Rob Gronkowski', status: 'available' },
+      { name: 'George Kittle', status: 'available' },
+      { name: 'Bears Defense', status: 'available' },
+      { name: 'Broncos Defense', status: 'available' },
+      { name: 'Titans Defense', status: 'available' },
+      { name: 'Giants Defense', status: 'available' }
     ]
   }
 
@@ -44,7 +62,7 @@ class DropList extends Component {
 
   render() {
     const players = {
-      fa: [],
+      available: [],
       myTeam: []
     }
     this.state.players.forEach(p =>
@@ -69,11 +87,11 @@ class DropList extends Component {
           className='freeAgency'
           onDragOver={e => this.onDragOver(e)}
           onDrop={e => {
-            this.onDrop(e, 'fa')
+            this.onDrop(e, 'available')
           }}
         >
           <span className='task-header'>Free Agency</span>
-          {players.fa}
+          {players.available}
         </div>
         <div
           className='droppable'
