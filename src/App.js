@@ -15,6 +15,7 @@ import TeamDelete from './TeamDelete.js'
 import TeamUpdate from './TeamUpdate.js'
 import TeamShow from './TeamShow.js'
 import TeamIndex from './TeamIndex.js'
+import DropList from './DropList.js'
 
 class App extends Component {
   constructor() {
@@ -61,7 +62,8 @@ class App extends Component {
             path='/sign-in'
             render={() => <SignIn flash={this.flash} setUser={this.setUser} />}
           />
-          {/* AuthenticatedRoute is used ONLY when a user has been signed in and has a valid token */}
+          <Route path='/list' render={() => <DropList />} />
+
           <AuthenticatedRoute
             user={user}
             path='/sign-out'
@@ -104,7 +106,6 @@ class App extends Component {
         <body className='home'>
           <div className='homeContent'>
             {/* <p>Welcome to Roto-React!</p> */}
-            
           </div>
         </body>
       </React.Fragment>
