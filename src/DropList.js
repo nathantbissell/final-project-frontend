@@ -56,7 +56,10 @@ class DropList extends Component {
           className='draggable'
           style={{ backgroundColor: p.bgcolor }}
         >
-          {p.name}
+          <ul className='display'>
+            <li className='p'>{p.name}</li>
+            <li className='p'>{p.status}</li>
+          </ul>
         </div>
       )
     )
