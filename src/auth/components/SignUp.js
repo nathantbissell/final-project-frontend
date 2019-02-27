@@ -6,7 +6,7 @@ import messages from '../messages'
 import apiUrl from '../../apiConfig'
 
 class SignUp extends Component {
-  constructor () {
+  constructor() {
     super()
 
     this.state = {
@@ -16,14 +16,15 @@ class SignUp extends Component {
     }
   }
 
-  handleChange = event => this.setState({
-    [event.target.name]: event.target.value
-  })
+  handleChange = event =>
+    this.setState({
+      [event.target.name]: event.target.value
+    })
 
   signUp = event => {
     event.preventDefault()
 
-    const { email, password, passwordConfirmation} = this.state
+    const { email, password, passwordConfirmation } = this.state
     const { flash, history, setUser } = this.props
 
     signUp(this.state)
@@ -37,41 +38,46 @@ class SignUp extends Component {
       .catch(() => flash(messages.signUpFailure, 'flash-error'))
   }
 
-  render () {
-    const { email, password, passwordConfirmation} = this.state
+  render() {
+    const { email, password, passwordConfirmation } = this.state
 
     return (
       <form className='auth-form' onSubmit={this.signUp}>
         <h3>Sign Up</h3>
 
-        <label htmlFor="email">Email</label>
+        <label htmlFor='email'>Email</label>
         <input
+          className='authShow'
           required
-          name="email"
+          name='email'
           value={email}
-          type="email"
-          placeholder="Email"
+          type='email'
+          placeholder='Email'
           onChange={this.handleChange}
         />
-        <label htmlFor="password">Password</label>
+        <label htmlFor='password'>Password</label>
         <input
+          className='authShow'
           required
-          name="password"
+          name='password'
           value={password}
-          type="password"
-          placeholder="Password"
+          type='password'
+          placeholder='Password'
           onChange={this.handleChange}
         />
-        <label htmlFor="passwordConfirmation">Confirm Password</label>
+        <label htmlFor='passwordConfirmation'>Confirm Password</label>
         <input
+          className='authShow'
           required
-          name="passwordConfirmation"
+          name='passwordConfirmation'
           value={passwordConfirmation}
-          type="password"
-          placeholder="Confirm Password"
+          type='password'
+          placeholder='Confirm Password'
           onChange={this.handleChange}
         />
-        <button type="submit">Sign Up</button>
+        <button type='submit' className='btn btn-danger'>
+          Sign Up
+        </button>
       </form>
     )
   }
