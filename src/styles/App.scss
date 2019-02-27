@@ -3,7 +3,6 @@ $warning: #f1e681;
 $error: #f08181;
 $charcoal: #ccc;
 
-
 body {
   background-color: #000;
   font-family: 'Pridi', serif;
@@ -52,10 +51,10 @@ body {
 
 .playerAdd {
   display: flex;
+  justify-content: center;
   margin: 20px 0px 10px 10px;
   padding: 20px;
 }
-
 
 .flash-success,
 .flash-warning,
@@ -98,13 +97,29 @@ body {
   text-align: center;
 }
 
+.homeHeader {
+  font-size: 25px;
+  margin-top: 50px;
+}
+
+.homeText {
+  font-size: 18px;
+}
+
+.homeText.good {
+  color: $success;
+}
+
+.logo {
+  margin-bottom: 20px;
+}
+
 .auth-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: 15% auto 0;
   max-width: 600px;
-
 
   h3,
   input {
@@ -123,7 +138,8 @@ body {
   padding: 10px;
   flex-direction: start;
 
-  h3, h4 {
+  h3,
+  h4 {
     color: #dc3545;
   }
 }

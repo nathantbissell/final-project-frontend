@@ -8,13 +8,11 @@ import SignUp from './auth/components/SignUp'
 import SignIn from './auth/components/SignIn'
 import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
-import messages from './auth/messages.js'
-import PlayerIndex from './PlayerIndex.js'
 import TeamCreate from './TeamCreate.js'
 import TeamDelete from './TeamDelete.js'
 import TeamUpdate from './TeamUpdate.js'
 import TeamShow from './TeamShow.js'
-import TeamIndex from './TeamIndex.js'
+import Home from './Home.js'
 import DropList from './DropList.js'
 
 class App extends Component {
@@ -105,7 +103,7 @@ class App extends Component {
         </main>
         <body className='home'>
           <div className='homeContent'>
-            {/* <p>Welcome to Roto-React!</p> */}
+            <Route exact path='/' component={Home} />
           </div>
         </body>
       </React.Fragment>

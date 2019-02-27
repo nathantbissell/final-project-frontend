@@ -3,7 +3,6 @@ import axios from 'axios'
 import apiUrl from './apiConfig'
 import messages from './auth/messages.js'
 
-
 class TeamUpdate extends Component {
   // this is your basic constructor setup
   constructor(props) {
@@ -76,7 +75,6 @@ class TeamUpdate extends Component {
       .catch(() => this.props.flash(messages.teamUpdateFailure, 'flash-error'))
   }
 
-
   onNameChange = event => this.setState({ teamName: event.target.value })
 
   onQBNameChange = event => this.setState({ qbName: event.target.value })
@@ -97,10 +95,7 @@ class TeamUpdate extends Component {
   render() {
     return (
       <div>
-        <form
-          className='playerAddMain'
-          onSubmit={this.updateTeam}
-        >
+        <form className='playerAddMain' onSubmit={this.updateTeam}>
           <input
             className='playerAdd'
             placeholder='Team Name'
@@ -108,13 +103,13 @@ class TeamUpdate extends Component {
             onChange={this.onNameChange}
           />
           <input
-            className='playerAdd'
+            className='playerAdd playerPair'
             placeholder='QB Name'
             value={this.state.qbName}
             onChange={this.onQBNameChange}
           />
           <input
-            className='playerAdd'
+            className='playerAdd playerPair'
             placeholder='QB Dollars'
             value={this.state.qbDollar}
             onChange={this.onQBDollarChange}
